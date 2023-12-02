@@ -1,5 +1,6 @@
 // Pagination.js
 import React from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Pagination = ({ totalPages, currentPage, setCurrentPage }) => {
   const pageButtons = [];
@@ -50,7 +51,7 @@ const Pagination = ({ totalPages, currentPage, setCurrentPage }) => {
         onClick={() => setCurrentPage(currentPage - 1)}
         disabled={isFirstPage}
       >
-        &lt; {/* Use &lt; for < */}
+        <FaChevronLeft />
       </button>
       {pageButtons}
       <button
@@ -58,7 +59,7 @@ const Pagination = ({ totalPages, currentPage, setCurrentPage }) => {
         onClick={() => setCurrentPage(currentPage + 1)}
         disabled={isLastPage}
       >
-        &gt; {/* Use &gt; for > */}
+        <FaChevronRight />
       </button>
     </>
   );

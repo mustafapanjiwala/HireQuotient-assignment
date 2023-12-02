@@ -55,8 +55,6 @@ const UserList = () => {
   };
 
   const handleSaveEdit = () => {
-    // Implement save edit functionality
-    // This example updates the user in the in-memory list
     setFilteredUsers((prevUsers) => {
       return prevUsers.map((user) =>
         user.id === editingUser.id ? editingUser : user

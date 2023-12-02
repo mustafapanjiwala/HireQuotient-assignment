@@ -1,5 +1,6 @@
 // TableRow.js
 import React from "react";
+import { FiEdit, FiDelete } from "react-icons/fi";
 
 const TableRow = ({
   user,
@@ -44,10 +45,10 @@ const TableRow = ({
         ) : (
           <>
             <button className="edit" onClick={() => handleEdit(user.id)}>
-              Edit
+              <FiEdit />
             </button>
             <button className="delete" onClick={() => handleDelete(user.id)}>
-              Delete
+              <FiDelete />
             </button>
           </>
         )}
