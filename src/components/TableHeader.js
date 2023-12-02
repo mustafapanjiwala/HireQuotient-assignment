@@ -1,4 +1,3 @@
-// TableHeader.js
 import React from "react";
 
 const TableHeader = ({ selectedRows, toggleSelectAll, pageSize }) => {

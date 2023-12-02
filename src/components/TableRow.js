@@ -1,4 +1,3 @@
-// TableRow.js
 import React from "react";
 import { FiEdit } from "react-icons/fi";
 import { MdDeleteOutline } from "react-icons/md";
