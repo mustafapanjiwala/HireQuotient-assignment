@@ -77,12 +77,19 @@ const UserList = () => {
   };
 
   const handleMultipleDelete = () => {
-    setFilteredUsers((prevUsers) =>
-      prevUsers.filter((user) => !selectedRows.includes(user.id))
+    // Get the user IDs of the selected rows on the current page
+    const selectedUserIdsOnPage = selectedRows.filter((userId) =>
+      users.some((user) => user.id === userId)
     );
+
+    // Delete the selected rows from the filtered users list
+    setFilteredUsers((prevUsers) =>
+      prevUsers.filter((user) => !selectedUserIdsOnPage.includes(user.id))
+    );
+
+    // Clear the selected rows array
     setSelectedRows([]);
   };
-
   const handleCheckboxChange = (userId) => {
     setSelectedRows((prevSelected) => {
       if (prevSelected.includes(userId)) {
@@ -97,7 +104,8 @@ const UserList = () => {
     if (selectedRows.length === pageSize) {
       setSelectedRows([]);
     } else {
-      setSelectedRows(filteredUsers.map((user) => user.id));
+      const allUserIds = users.map((user) => user.id);
+      setSelectedRows(allUserIds);
     }
   };
 
