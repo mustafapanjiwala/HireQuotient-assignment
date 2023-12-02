@@ -46,21 +46,26 @@ const Pagination = ({ totalPages, currentPage, setCurrentPage }) => {
 
   return (
     <>
-      <button
-        className="pagination-button"
-        onClick={() => setCurrentPage(currentPage - 1)}
-        disabled={isFirstPage}
-      >
-        <FaChevronLeft />
-      </button>
-      {pageButtons}
-      <button
-        className="pagination-button"
-        onClick={() => setCurrentPage(currentPage + 1)}
-        disabled={isLastPage}
-      >
-        <FaChevronRight />
-      </button>
+      <div>
+        <button
+          className="pagination-button"
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={isFirstPage}
+        >
+          <FaChevronLeft />
+        </button>
+        {pageButtons}
+        <button
+          className="pagination-button"
+          onClick={() => setCurrentPage(currentPage + 1)}
+          disabled={isLastPage}
+        >
+          <FaChevronRight />
+        </button>
+      </div>
+      <div style={{ textAlign: "right" }}>
+        <p>Page {currentPage} of 5</p>
+      </div>
     </>
   );
 };

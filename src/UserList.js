@@ -1,10 +1,10 @@
-// UserList.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./styles.css";
 import TableHeader from "./components/TableHeader";
 import TableRow from "./components/TableRow";
 import Pagination from "./components/Pagination";
+import { MdSearch } from "react-icons/md";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -64,8 +64,6 @@ const UserList = () => {
   };
 
   const handleDelete = (userId) => {
-    // Implement delete functionality
-    // This should delete the selected row from the in-memory list
     setFilteredUsers((prevUsers) =>
       prevUsers.filter((user) => user.id !== userId)
     );
@@ -75,17 +73,14 @@ const UserList = () => {
   };
 
   const handleMultipleDelete = () => {
-    // Get the user IDs of the selected rows on the current page
     const selectedUserIdsOnPage = selectedRows.filter((userId) =>
       users.some((user) => user.id === userId)
     );
 
-    // Delete the selected rows from the filtered users list
     setFilteredUsers((prevUsers) =>
       prevUsers.filter((user) => !selectedUserIdsOnPage.includes(user.id))
     );
 
-    // Clear the selected rows array
     setSelectedRows([]);
   };
   const handleCheckboxChange = (userId) => {
@@ -109,7 +104,6 @@ const UserList = () => {
 
   return (
     <div className="user-list-container">
-      <h2>User List</h2>
       <div className="search-bar">
         <input
           type="text"
@@ -118,7 +112,7 @@ const UserList = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <button className="search-icon" onClick={handleSearch}>
-          Search
+          Search <MdSearch size={15} />
         </button>
       </div>
       <table className="user-table">
@@ -147,16 +141,24 @@ const UserList = () => {
       </table>
       {/* Pagination */}
       <div className="pagination">
-        <Pagination
-          totalPages={Math.ceil(filteredUsers.length / pageSize)}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
+        <div className="delete-selected">
+          <p>{selectedRows.length} of 10 rows selected</p>
+          <button
+            className="delete-all"
+            style={{ marginLeft: "15px" }}
+            onClick={handleMultipleDelete}
+          >
+            Delete all
+          </button>
+        </div>
+        <div>
+          <Pagination
+            totalPages={Math.ceil(filteredUsers.length / pageSize)}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
+        </div>
       </div>
-      {/* Delete Selected Button */}
-      <button className="delete-selected" onClick={handleMultipleDelete}>
-        Delete Selected
-      </button>
     </div>
   );
 };

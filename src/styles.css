@@ -1,8 +1,8 @@
-body{
-  font-family: 'Lato', sans-serif;
+body {
+  font-family: "Lato", sans-serif;
 }
 
-.nav{
+.nav {
   height: 8vh;
   width: 100%;
   background-color: #f7f7f7;
@@ -11,7 +11,7 @@ body{
   align-items: center;
 }
 
-.App-title{
+.App-title {
   font-weight: 300;
   font-size: 20px;
 }
@@ -42,8 +42,11 @@ input[type="text"] {
   margin-right: 10px;
 }
 button.search-icon {
+  display: flex;
+  gap: 5px;
+  align-items: center;
   padding: 10px 20px;
-  background-color: #19A7CE;
+  background-color: #19a7ce;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -66,7 +69,7 @@ td {
 }
 
 th {
-  background-color: #19A7CE;
+  background-color: #19a7ce;
   color: #fff;
 }
 
@@ -86,10 +89,8 @@ th input[type="checkbox"] {
   margin: 0;
 }
 
-.edit,
 .delete,
-.pagination-button,
-.delete-selected {
+.pagination-button {
   background-color: #4caf50;
   color: white;
   border: none;
@@ -103,18 +104,37 @@ th input[type="checkbox"] {
   border-radius: 2px;
 }
 
-.edit {
-  background-color: #19A7CE;
+.edit,
+.delete,
+.delete-all {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 2px;
 }
-
 .delete {
-  background-color: #f44336;
+  margin-left: 0;
+}
+.delete-all {
+  background-color: #dc3545;
 }
 
 .pagination {
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .pagination-button {
@@ -139,29 +159,8 @@ th input[type="checkbox"] {
   color: #fff;
 }
 .delete-selected {
-  background-color: #dc3545;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #a1abb7;
 }
-
-.delete-selected:hover {
-  background-color: #f44336;
-}
-
-.save {
-  background-color: #ffc107;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-

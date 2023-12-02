@@ -1,6 +1,7 @@
 // TableRow.js
 import React from "react";
-import { FiEdit, FiDelete } from "react-icons/fi";
+import { FiEdit } from "react-icons/fi";
+import { MdDeleteOutline } from "react-icons/md";
 
 const TableRow = ({
   user,
@@ -8,8 +9,8 @@ const TableRow = ({
   handleCheckboxChange,
   handleEdit,
   handleDelete,
-  editingUser, // Receive editingUser as a prop
-  setEditingUser, // Receive setEditingUser as a prop
+  editingUser,
+  setEditingUser,
   handleSaveEdit,
 }) => {
   return (
@@ -39,18 +40,25 @@ const TableRow = ({
       <td>{user.role}</td>
       <td>
         {editingUser && editingUser.id === user.id ? (
-          <button className="save" onClick={handleSaveEdit}>
+          <div className="delete-all" onClick={handleSaveEdit}>
             Save
-          </button>
+          </div>
         ) : (
-          <>
+          <div
+            div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-around",
+            }}
+          >
             <button className="edit" onClick={() => handleEdit(user.id)}>
-              <FiEdit />
+              <FiEdit color="black" />
             </button>
             <button className="delete" onClick={() => handleDelete(user.id)}>
-              <FiDelete />
+              <MdDeleteOutline color="red" size={20} />
             </button>
-          </>
+          </div>
         )}
       </td>
     </tr>
